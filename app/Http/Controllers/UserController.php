@@ -14,6 +14,9 @@ class UserController extends Controller
 {
     public function loadregister()
     {
+        if(session()->has('email')){
+            return redirect('/dashboard');
+        }
         return view('UserRegister');
     }
     public function storeregister(Request $request){
@@ -59,6 +62,9 @@ class UserController extends Controller
         }
     }
     public function loadlogin(){
+        if(session()->has('email')){
+            return redirect('/dashboard');
+        }
         return view('Login');
     }
     public function storelogin(Request $request){
