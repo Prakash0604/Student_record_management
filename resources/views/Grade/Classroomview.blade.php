@@ -13,6 +13,7 @@
                     <th>Class Name</th>
                     <th>Description</th>
                     <th>Status</th>
+                    <th>Created Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -30,9 +31,10 @@
                         <span class="badge badge-primary bg-success">Active</span>
                         @else
                         <span class="badge badge-primary bg-danger">Inactive</span>
-
+                        
                         @endif
                     </td>
+                    <td>{{ $class->created_at }}</td>
                     <td>
                         <a href="{{ url('/classroom/edit/'.$class->id) }}">
                             <button class="btn btn-primary">Edit</button>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +35,7 @@ Route::middleware('studentauth')->group(function(){
       Route::get('/classroom/edit/{id}',[ClassroomController::class, 'classroomedit']);
       Route::post('/classroom/edit/{id}',[ClassroomController::class, 'classroomupdate']);
       Route::get('/classroom/delete/{id}',[ClassroomController::class, 'classroomdelete']);
+      Route::get('/student/add',[StudentController::class,'studentadd']);
+      Route::post('/student/add',[StudentController::class,'studentstore']);
+      Route::get('/student/view',[StudentController::class, 'studentview']);
 });
