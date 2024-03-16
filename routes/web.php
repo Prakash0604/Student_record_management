@@ -24,3 +24,7 @@ Route::post('/register',[UserController::class, 'storeregister']);
 Route::get('/remember-token/{token}',[UserController::class, 'verifynow']);
 Route::get('/login',[UserController::class, 'loadlogin']);
 Route::post('/login',[UserController::class, 'storelogin']);
+Route::middleware('studentauth')->group(function(){
+      Route::get('/dashboard',[UserController::class, 'dashboard']);
+      Route::get('/logout',[UserController::class, 'logout']);
+});
