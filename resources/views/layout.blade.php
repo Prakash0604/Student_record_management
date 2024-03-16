@@ -24,51 +24,27 @@
                 class="navbar navbar-expand-sm navbar-dark bg-dark"
             >
                 <div class="container">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <button
-                        class="navbar-toggler d-lg-none"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapsibleNavId"
-                        aria-controls="collapsibleNavId"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    @if (session()->has('email'))
+                    <a class="navbar-brand" href="{{ url('/dashboard') }}">Navbar</a>
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#" aria-current="page"
+                                <a class="nav-link active" href="{{ url('/dashboard') }}" aria-current="page"
                                     >Home
                                     <span class="visually-hidden">(current)</span></a
                                 >
                             </li>
+                                
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link" href="{{ url('classroom') }}">Classroom Add</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    id="dropdownId"
-                                    data-bs-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    >Dropdown</a
-                                >
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="dropdownId"
-                                >
-                                    <a class="dropdown-item" href="#"
-                                        >Action 1</a
-                                    >
-                                    <a class="dropdown-item" href="#"
-                                        >Action 2</a
-                                    >
-                                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/classroom/view') }}">Classroom View</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
+                            </li>
+                            
                         </ul>
                         <form class="d-flex my-2 my-lg-0">
                             <input
@@ -84,6 +60,7 @@
                             </button>
                         </form>
                     </div>
+                    @endif
                 </div>
             </nav>
         </header>
