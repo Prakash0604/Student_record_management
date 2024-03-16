@@ -40,25 +40,18 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/classroom/view') }}">Classroom View</a>
+                            </li> <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/student/add') }}">Student Add</a>
+                            </li> <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/student/view') }}">Student View</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
-                            </li>
-                            
+                           
                         </ul>
-                        <form class="d-flex my-2 my-lg-0">
-                            <input
-                                class="form-control me-sm-2"
-                                type="text"
-                                placeholder="Search"
-                            />
-                            <button
-                                class="btn btn-outline-success my-2 my-sm-0"
-                                type="submit"
-                            >
-                                Search
-                            </button>
-                        </form>
+                        
+                           <a href="{{ url('/logout') }}">
+                            <button class="btn btn-danger">Logout</button>
+                           </a>
+                    
                     </div>
                     @endif
                 </div>

@@ -21,7 +21,7 @@
                 @php
                     $n=1;
                 @endphp
-                @foreach ($classroom as $class )   
+                @forelse ($classroom as $class )   
                 <tr>
                     <td>{{ $n }}</td>
                     <td>{{ $class->class_name }}</td>
@@ -47,7 +47,9 @@
                 @php
                     $n=$n+1;
                 @endphp
-                @endforeach
+                @empty
+               <td>No data found</td>
+                @endforelse
             </tbody>
         </table>
     </div>
