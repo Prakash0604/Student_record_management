@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
@@ -59,5 +60,38 @@ class UserController extends Controller
     }
     public function loadlogin(){
         return view('Login');
+    }
+    public function storelogin(Request $request){
+        $request->validate([
+            'email'=>'required',
+            'password'=>'required',
+        ]);
+        $Users=User::where('email',$request->email)->get();
+        if($Users->count()){
+
+            if($Users[0]['is_verified']==0){
+                return back()->with('message','Email is not verified yet');
+            }else{
+                $Auth=$request->only('email','password');
+                if(Auth::attempt($Auth)){
+                   $request-> session()->put('email',$request->email);
+                    return redirect('/dashboard');
+                }
+                else{
+                    return back()->with('message','Invalid login crediantials');
+                }
+            }
+        }else{
+            return back()->with('message','Please register your email to login');
+        }
+    }
+    public function dashboard(){
+        return view('Students.dashboard');
+    }
+    public function logout(){
+        // if(session()->has('email')){
+            session()->forget('email');
+            return redirect('/login');
+        // }
     }
 }

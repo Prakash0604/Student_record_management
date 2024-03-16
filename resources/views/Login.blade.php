@@ -3,10 +3,13 @@
 <div class="container col-4 mt-3">
     <h1 class="text-center bg-dark text-white rounded mt-2 mb-2">Login Now</h1>
     <div class="card p-3">
-        @if (session()->has('success'))
-        <div class="alert alert-success">{{ session()->get('success') }}</div>
+        @if (session()->has('verification'))
+        <div class="alert alert-success text-center">{{ session()->get('verification') }}</div>
        @endif
-        <form action="{{ url('/register') }}" method="post">
+        @if (session()->has('message'))
+        <div class="alert alert-danger text-center">{{ session()->get('message') }}</div>
+       @endif
+        <form action="{{ url('/login') }}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="" class="form-label">Email</label>
