@@ -95,10 +95,12 @@ class UserController extends Controller
     }
     public function dashboard(){
         $studentcount=student::where('status','Active')->count();
+        $inactivestudent=student::where('status','Inactive')->count();
         $totalstu=student::count();
         $totalclass=classroom::count();
         $activeclass=classroom::where('status','Active')->count();
-        $data=compact('studentcount','totalstu','totalclass','activeclass');
+        $inactiveclass=classroom::where('status','Inactive')->count();
+        $data=compact('studentcount','totalstu','totalclass','activeclass','inactivestudent','inactiveclass');
         return view('Students.dashboard',$data);
     }
     public function logout(){
