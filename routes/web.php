@@ -22,3 +22,5 @@ Route::get('/', function () {
 Route::get('/register',[UserController::class, 'loadregister']);
 Route::post('/register',[UserController::class, 'storeregister']);
 Route::get('/remember-token/{token}',[UserController::class, 'verifynow']);
+Route::get('/login',[UserController::class, 'loadlogin']);
+Route::post('/login',[UserController::class, 'storelogin']);

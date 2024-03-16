@@ -57,4 +57,7 @@ class UserController extends Controller
             return view('mail.verifyit',['message'=>'Invalid token']);
         }
     }
+    public function loadlogin(){
+        return view('Login');
+    }
 }

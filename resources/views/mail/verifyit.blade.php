@@ -20,8 +20,11 @@
 
     <body>
         <div class="container mt-3">
-            <div class="card text-center">
+            <div class="card text-center p-3">
                <h3>{{ $message }}</h3>
+               <a href="{{ url('/login') }}">
+                <button class="btn btn-primary">Login</button>
+            </a>
             </div>
         </div>
     </body>

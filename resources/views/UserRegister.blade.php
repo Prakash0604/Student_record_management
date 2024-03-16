@@ -58,7 +58,7 @@
             </div>
             <div class="container">
             <button class="btn btn-primary">Register</button>
-             If already register ? <a href="">Login here</a>
+             If already register ? <a href="{{ url('/login') }}">Login here</a>
             </div>
         </form>
     </div>
