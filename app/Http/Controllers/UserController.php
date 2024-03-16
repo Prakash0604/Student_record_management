@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\classroom;
+use App\Models\student;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -92,7 +94,12 @@ class UserController extends Controller
         }
     }
     public function dashboard(){
-        return view('Students.dashboard');
+        $studentcount=student::where('status','Active')->count();
+        $totalstu=student::count();
+        $totalclass=classroom::count();
+        $activeclass=classroom::where('status','Active')->count();
+        $data=compact('studentcount','totalstu','totalclass','activeclass');
+        return view('Students.dashboard',$data);
     }
     public function logout(){
         // if(session()->has('email')){

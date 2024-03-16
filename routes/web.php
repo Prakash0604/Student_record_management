@@ -38,4 +38,8 @@ Route::middleware('studentauth')->group(function(){
       Route::get('/student/add',[StudentController::class,'studentadd']);
       Route::post('/student/add',[StudentController::class,'studentstore']);
       Route::get('/student/view',[StudentController::class, 'studentview']);
+      Route::get('/student/detail/{id}',[StudentController::class, 'studentdetail']);
+      Route::get('/student/edit/{id}',[StudentController::class,'studentedit']);
+      Route::post('/student/edit/{id}',[StudentController::class,'studentupdate']);
+      Route::get('/student/delete/{id}',[StudentController::class,'studentdelete']);
 });
