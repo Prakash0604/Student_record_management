@@ -9,7 +9,7 @@
         @endif
         <div class="card-head mt-2">
             <h3 class="text-center">{{ $studentdetail->stu_name }}</h3>
-            <a href="{{ url('/student/edit/') }}" class="d-flex mx-auto">
+            <a href="{{ url('/student/edit/'.$studentdetail->id) }}" class="d-flex mx-auto">
                 <button class="btn btn-primary d-felx mx-auto mb-2">Edit Detail</button>
             </a>
         </div>
@@ -34,7 +34,7 @@
                   <tr>
                     <th>Class</th>
                     {{-- @foreach ($classroom as $class )   --}}
-                    <td>{{ $classroom->class_name }}</td>
+                    <td>{{ $studentdetail->stu_class }}</td>
                     {{-- @endforeach --}}
                 </tr>
                   <tr>

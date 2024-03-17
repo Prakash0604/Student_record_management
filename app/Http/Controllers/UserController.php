@@ -83,7 +83,7 @@ class UserController extends Controller
                 $Auth=$request->only('email','password');
                 if(Auth::attempt($Auth)){
                    $request-> session()->put('email',$request->email);
-                    return redirect('/dashboard');
+                    return redirect('/dashboard')->with('success','Welcome to Dashboard '.$request->email);
                 }
                 else{
                     return back()->with('message','Invalid login crediantials');

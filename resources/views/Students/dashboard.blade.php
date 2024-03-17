@@ -2,6 +2,11 @@
 @section('content')
 <div class="container mt-3 col-4">
     <h1 class="text-center">Dashboard</h1>
+    @if (session()->has('success'))
+    <div class="alert alert-success text-center">
+        {{ session()->get('success') }}
+    </div> 
+    @endif
     <div class="card p-3 text-center bg-secondary text-white">
         <h5>Active Student : {{ $studentcount }}</h5>
         <h5>Inactive Student : {{ $inactivestudent }}</h5>

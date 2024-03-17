@@ -120,8 +120,8 @@
                     >
                         <option>Select one</option>
                         @foreach ($classroom as $class ) 
-                        @if ($class->status=="Active")     
-                        <option value="{{ $class->id }}" selected>{{ $class->class_name }}</option>
+                        @if ($class->status=="Active")                  
+                        <option value="{{ $class->id }}" >{{ $class->class_name }}</option>  
                         @endif
                         @endforeach
                     </select>

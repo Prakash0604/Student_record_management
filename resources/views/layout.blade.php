@@ -25,16 +25,9 @@
             >
                 <div class="container">
                     @if (session()->has('email'))
-                    <a class="navbar-brand" href="{{ url('/dashboard') }}">Navbar</a>
+                    <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
-                        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ url('/dashboard') }}" aria-current="page"
-                                    >Home
-                                    <span class="visually-hidden">(current)</span></a
-                                >
-                            </li>
-                                
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0">                                
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('classroom') }}">Classroom Add</a>
                             </li>

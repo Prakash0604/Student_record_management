@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\classroom;
 use App\Models\student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -50,15 +51,14 @@ class StudentController extends Controller
     }
     public function studentdetail($id){
         $studentdetail=student::find($id);
-        // $classroom=classroom::find($id)->join('classrooms','students.stu_class','=','classrooms.id')->select('students.stu_class','classrooms.id')->get();
-        // $classroom=student::find($id)->join('classrooms','students.stu_class','=','classrooms.id')->get();
-        $classroom=classroom::find($id);
+        $classroom=DB::table('students')->join('classrooms','students.stu_class','=','classrooms.id')->select('classrooms.class_name')->where('students.id', $id)->get();
         return view('Students.StudentDetail',compact('studentdetail','classroom'));
     }
     public function studentedit($id){
         $classroom=classroom::all();
         $students=student::find($id);
-        return view('Students.StudentEdit',compact('students','classroom'));
+        $classrooms=DB::table('students')->join('classrooms','students.stu_class','=','classrooms.id')->select('classrooms.class_name')->where('students.id', $id)->get();
+        return view('Students.StudentEdit',compact('students','classroom','classrooms'));
     }
     public function studentupdate( Request $request,$id){
         $request->validate([
